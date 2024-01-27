@@ -1,0 +1,47 @@
+<html>
+ <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+      function subscribe() {
+        var email = prompt("What is your email?", "????");
+
+        $.post({
+          type: "POST",
+          url: "email",
+          data: email,
+          contentType: "application/text; charset=utf-8",
+          dataType: "json"
+        }).done(function(data) {
+          alert(data);
+        }).fail(function(data) {
+          alert("POST failed");
+        });
+      }
+    </script>
+  </head>
+
+
+  <body>
+    <h1>Welcome!</h1>
+
+
+      <p><a href="browse.html">Browse Data</a></p>
+
+      <p>Donate!</p>
+
+      <p>The data used for this website are statistics from 25 randomly selected movies from the imdb website. The data includes movie titles, release dates, ratings, and more! Click "Browse Data" to see the full table of data. Enjoy!</p>
+      
+      <img src="genreplt.svg"><br><br>
+    
+      
+      <img src="ratingsbox.svg"><br><br>
+           
+      
+      <img src="genreplt.svg?color=red"><br><br>
+
+      
+
+    <button onclick="subscribe()">Subscribe</button>
+  </body>
+</html>
+
